@@ -1,37 +1,44 @@
 /* styles.css */
 
-/* ---------- Circular header image ---------- */
+/* ---------- Circular header image (responsive) ---------- */
 :root {
-  /* Adjust this value to change the diameter of the circle */
-  --circle-size: 200px;
+  /* Circle diameter scales with viewport width – adjust as needed */
+  --circle-size: clamp(120px, 30vw, 250px);
 }
 
+/* Wrapper forces a perfect circle and hides overflow */
 .circle-img-wrapper {
   width: var(--circle-size);
   height: var(--circle-size);
   overflow: hidden;
   border-radius: 50%;
-  /* Optional: add a thin border around the circle */
-  border: 3px solid #dee2e6;
+  border: 3px solid #dee2e6;   /* optional subtle border */
   background: #fff;
 }
 
-/* Make the image fill the circle while preserving aspect ratio */
+/* Image fills the circle while preserving aspect ratio */
 .circle-img {
   width: 100%;
   height: 100%;
   object-fit: cover;   /* crop to fill the circle */
 }
 
-/* ---------- Minor page tweaks (optional) ---------- */
+/* ---------- Page‑wide tweaks ---------- */
 body {
-  /* keep a light background */
-  background-color: rgb(0 55 166) !important;
+  background-color: #f8f9fa;   /* light gray background */
 }
 
-/* Ensure the suggestion dropdown appears above everything */
+/* Ensure the autocomplete dropdown appears above everything */
 .list-group {
   z-index: 1050;
+}
+
+/* Small tweak for very narrow screens – give the input a little left/right padding */
+@media (max-width: 350px) {
+  .form-control {
+    padding-left: .75rem;
+    padding-right: .75rem;
+  }
 }
 .container {
   max-width: 400px;
