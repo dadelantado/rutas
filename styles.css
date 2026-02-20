@@ -33,3 +33,6 @@ body {
 .list-group {
   z-index: 1050;
 }
+.container {
+  max-width: 400px;
+}
